@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
-import { TBlogss } from './blogs.interface';
+import { TBlogs } from './blogs.interface';
 
-const blogsSchema = new Schema<TBlogss>(
+const blogsSchema = new Schema<TBlogs>(
   {
     id: {
       type: String,
@@ -37,4 +37,4 @@ const blogsSchema = new Schema<TBlogss>(
   },
 );
 
-export const Blogs = model<TBlogss>('Blogs', blogsSchema);
+export const Blogs = model<TBlogs>('Blogs', blogsSchema);
