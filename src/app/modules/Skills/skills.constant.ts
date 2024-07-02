@@ -1,1 +1,1 @@
-export const Category = ['frontend', 'backend'];
+export const Category = ['Frontend', 'Backend'];
