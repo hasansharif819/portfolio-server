@@ -8,6 +8,10 @@ const skillsSchema = new Schema<TSkills>(
       type: String,
       required: [true, 'Name is required'],
     },
+    progress: {
+      type: Number,
+      required: [true, 'Progress is required'],
+    },
     category: {
       type: String,
       enum: {
@@ -16,7 +20,10 @@ const skillsSchema = new Schema<TSkills>(
       },
       required: [true, 'Category is required'],
     },
-    img: { type: String, default: '' },
+    img: { 
+      type: String, 
+      required: [true, 'Image is required'] 
+    },
     isDeleted: {
       type: Boolean,
       default: false,

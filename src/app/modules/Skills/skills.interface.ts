@@ -4,6 +4,6 @@ export type TSkills = {
   name: string;
   progress: number;
   category: TCategory;
-  img?: string;
+  img: string;
   isDeleted: boolean;
 };
