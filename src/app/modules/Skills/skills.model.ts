@@ -4,11 +4,6 @@ import { TSkills } from './skills.interface';
 
 const skillsSchema = new Schema<TSkills>(
   {
-    id: {
-      type: String,
-      required: [true, 'ID is required'],
-      unique: true,
-    },
     name: {
       type: String,
       required: [true, 'Name is required'],
