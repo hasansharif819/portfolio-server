@@ -12,6 +12,16 @@ const getAllSkillsFromDB = async () => {
   return result;
 };
 
+const getFrontendSkillsFromDB = async () => {
+  const result = await Skills.find({ category: "Frontend" });
+  return result;
+};
+
+const getBackendSkillsFromDB = async () => {
+  const result = await Skills.find({ category: "Backend" });
+  return result;
+};
+
 const deleteSkillFromDB = async (id: string) => {
   const result = await Skills.findByIdAndUpdate(
     id,
@@ -26,5 +36,7 @@ const deleteSkillFromDB = async (id: string) => {
 export const SkillsServices = {
   getAllSkillsFromDB,
   deleteSkillFromDB,
-  createSkillIntoDB
+  createSkillIntoDB,
+  getFrontendSkillsFromDB,
+  getBackendSkillsFromDB,
 };

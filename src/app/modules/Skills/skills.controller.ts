@@ -25,6 +25,28 @@ const getAllSkills = catchAsync(async (req, res) => {
   });
 });
 
+const getFrontendSkills = catchAsync(async (req, res) => {
+  const result = await SkillsServices.getFrontendSkillsFromDB();
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Frontend Skills are retrieved succesfully',
+    data: result,
+  });
+});
+
+const getBackendSkills = catchAsync(async (req, res) => {
+  const result = await SkillsServices.getBackendSkillsFromDB();
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Backend Skills are retrieved succesfully',
+    data: result,
+  });
+});
+
 const deleteSkill = catchAsync(async (req, res) => {
   const { id } = req.params;
   const result = await SkillsServices.deleteSkillFromDB(id);
@@ -40,5 +62,7 @@ const deleteSkill = catchAsync(async (req, res) => {
 export const SkillsControllers = {
   createSkill,
   getAllSkills,
-  deleteSkill
+  deleteSkill,
+  getFrontendSkills,
+  getBackendSkills,
 };
