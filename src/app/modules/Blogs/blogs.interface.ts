@@ -1,3 +1,5 @@
+import { Date } from "mongoose";
+
 export type TBlogs = {
   id: string;
   title: string;
@@ -6,4 +8,5 @@ export type TBlogs = {
   summary?: string;
   img?: string;
   isDeleted: boolean;
+  createdAt?: Date;
 };

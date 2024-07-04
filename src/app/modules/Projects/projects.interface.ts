@@ -1,3 +1,5 @@
+import { Date } from "mongoose";
+
 export type TProjects = {
   title: string;
   image: string;
@@ -8,4 +10,5 @@ export type TProjects = {
   frontendTechnology: string;
   backendTechnology: string;
   isDeleted?: boolean;
+  createdAt?: Date;
 };

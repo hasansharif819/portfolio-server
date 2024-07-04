@@ -48,6 +48,10 @@ const projectsSchema = new Schema<TProjects>({
     type: Boolean,
     default: false,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 export const Projects = model<TProjects>('Projects', projectsSchema);

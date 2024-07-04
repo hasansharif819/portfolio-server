@@ -1,3 +1,5 @@
+import { Date } from "mongoose";
+
 export type TCategory = 'frontend' | 'backend';
 
 export type TSkills = {
@@ -6,4 +8,5 @@ export type TSkills = {
   category: TCategory;
   img: string;
   isDeleted: boolean;
+  createdAt?: Date;
 };

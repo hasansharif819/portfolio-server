@@ -11,7 +11,7 @@ const createProjectIntoDB = async (payload: TProjects) => {
 };
 
 const getAllProjectsFromDB = async () => {
-  const result = await Projects.find();
+  const result = await Projects.find().sort({ createdAt: -1 });
   return result;
 };
 
