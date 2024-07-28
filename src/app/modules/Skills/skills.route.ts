@@ -28,6 +28,12 @@ router.get(
   SkillsControllers.getBackendSkills,
 );
 
+router.patch(
+  '/:id',
+  validateRequest(skillsValidations.updateSkillsValidationSchema),
+  SkillsControllers.updateSkill,
+);
+
 router.delete(
   '/:id',
   auth(USER_ROLE.superAdmin, USER_ROLE.admin),

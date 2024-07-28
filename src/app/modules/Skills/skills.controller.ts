@@ -47,6 +47,18 @@ const getBackendSkills = catchAsync(async (req, res) => {
   });
 });
 
+const updateSkill = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await SkillsServices.updateSkillIntoDB(id, req.body);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Skill is updated succesfully',
+    data: result,
+  });
+});
+
 const deleteSkill = catchAsync(async (req, res) => {
   const { id } = req.params;
   const result = await SkillsServices.deleteSkillFromDB(id);
@@ -65,4 +77,5 @@ export const SkillsControllers = {
   deleteSkill,
   getFrontendSkills,
   getBackendSkills,
+  updateSkill
 };

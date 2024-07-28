@@ -10,6 +10,16 @@ export const createSkillsValidationSchema = z.object({
   }),
 });
 
+export const updateSkillsValidationSchema = z.object({
+  body: z.object({
+    name: z.string().optional(),
+    category: z.enum([...Category] as [string, ...string[]]).optional(),
+    progress: z.number().optional(),
+    img: z.string().optional(),
+  }),
+});
+
 export const skillsValidations = {
-  createSkillsValidationSchema
+  createSkillsValidationSchema,
+  updateSkillsValidationSchema
 };
