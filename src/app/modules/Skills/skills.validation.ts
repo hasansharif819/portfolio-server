@@ -5,7 +5,7 @@ export const createSkillsValidationSchema = z.object({
   body: z.object({
     name: z.string(),
     category: z.enum([...Category] as [string, ...string[]]),
-    progress: z.number(),
+    progress: z.number().optional(),
     img: z.string().optional(),
   }),
 });

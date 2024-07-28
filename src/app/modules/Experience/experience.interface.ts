@@ -9,5 +9,6 @@ export type TExperience = {
   website: string;
   joining: string;
   ending: string;
+  isDeleted?: boolean;
   createdAt?: Date;
 };

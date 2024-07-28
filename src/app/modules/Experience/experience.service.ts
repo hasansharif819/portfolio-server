@@ -11,7 +11,7 @@ const createExperienceIntoDB = async (payload: TExperience) => {
 };
 
 const getAllExperienceFromDB = async () => {
-  const result = await Experience.find().sort({ createdAt: -1 });
+  const result = await Experience.find({ isDeleted: false }).sort({ createdAt: -1 });
   return result;
 };
 
@@ -49,8 +49,20 @@ const updateExperienceIntoDB = async (id: string, payload: Partial<TExperience>)
   }
 };
 
+const deleteExperienceFromDB = async (id: string) => {
+  const result = await Experience.findByIdAndUpdate(
+    id,
+    { isDeleted: true },
+    {
+      new: true,
+    },
+  );
+  return result;
+};
+
 export const ExperienceServices = {
   getAllExperienceFromDB,
   createExperienceIntoDB,
-  updateExperienceIntoDB
+  updateExperienceIntoDB,
+  deleteExperienceFromDB
 };

@@ -33,6 +33,10 @@ const experienceSchema = new Schema<TExperience>(
       type: String,
       required: [true, 'Ending month and year is required'],
     },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
     createdAt: {
       type: Date,
       default: Date.now

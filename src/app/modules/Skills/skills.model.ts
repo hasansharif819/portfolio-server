@@ -10,7 +10,6 @@ const skillsSchema = new Schema<TSkills>(
     },
     progress: {
       type: Number,
-      required: [true, 'Progress is required'],
     },
     category: {
       type: String,

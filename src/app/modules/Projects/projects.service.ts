@@ -11,7 +11,7 @@ const createProjectIntoDB = async (payload: TProjects) => {
 };
 
 const getAllProjectsFromDB = async () => {
-  const result = await Projects.find().sort({ createdAt: -1 });
+  const result = await Projects.find({ isDeleted: false }).sort({ createdAt: -1 });
   return result;
 };
 
@@ -22,7 +22,7 @@ const getSingleProjectFromDB = async (id: string) => {
 
 const updateProjectIntoDB = async (id: string, payload: Partial<TProjects>) => {
   const { ...projectRemainingData } = payload;
-
+  
   const session = await mongoose.startSession();
 
   try {

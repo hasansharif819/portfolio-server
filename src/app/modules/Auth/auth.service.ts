@@ -30,7 +30,7 @@ const loginUser = async (payload: TLoginUser) => {
   //create token and sent to the  client
 
   const jwtPayload = {
-    userEmail: user.email,
+    email: user.email,
     role: user.role,
   };
 
@@ -57,7 +57,7 @@ const changePassword = async (
   payload: { oldPassword: string; newPassword: string },
 ) => {
   // checking if the user is exist
-  const user = await User.isUserExistsByEmail(userData.userEmail);
+  const user = await User.isUserExistsByEmail(userData.email);
 
   if (!user) {
     throw new AppError(httpStatus.NOT_FOUND, 'This user is not found !');
@@ -83,7 +83,7 @@ const changePassword = async (
 
   await User.findOneAndUpdate(
     {
-      email: userData.userEmail,
+      email: userData.email,
       role: userData.role,
     },
     {
@@ -100,10 +100,10 @@ const refreshToken = async (token: string) => {
   // checking if the given token is valid
   const decoded = verifyToken(token, config.jwt_refresh_secret as string);
 
-  const { userEmail, iat } = decoded;
+  const { email, iat } = decoded;
 
   // checking if the user is exist
-  const user = await User.isUserExistsByEmail(userEmail);
+  const user = await User.isUserExistsByEmail(email);
 
   if (!user) {
     throw new AppError(httpStatus.NOT_FOUND, 'This user is not found !');
@@ -123,7 +123,7 @@ const refreshToken = async (token: string) => {
   }
 
   const jwtPayload = {
-    userEmail: user.email,
+    email: user.email,
     role: user.role,
   };
 

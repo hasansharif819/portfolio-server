@@ -18,6 +18,24 @@ const createAdminIntoDB = async (
   return result;
 };
 
+const getAllAdminsFromDB = async () => {
+  const result = await User.find().sort({ createdAt: -1 });
+  return result;
+};
+
+const deleteAdminFromDB = async (id: string) => {
+  const result = await User.findByIdAndUpdate(
+    id,
+    { isDeleted: true },
+    {
+      new: true,
+    },
+  );
+  return result;
+};
+
 export const UserServices = {
   createAdminIntoDB,
+  getAllAdminsFromDB,
+  deleteAdminFromDB
 };

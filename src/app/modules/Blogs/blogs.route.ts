@@ -24,7 +24,6 @@ router.get(
 
 router.delete(
   '/:id',
-  // auth(USER_ROLE.superAdmin, USER_ROLE.admin),
   BlogsControllers.deleteBlog,
 );
 

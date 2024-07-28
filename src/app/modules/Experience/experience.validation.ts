@@ -10,6 +10,7 @@ export const createExperienceValidationSchema = z.object({
     logo: z.string().optional(),
     joining: z.string(),
     ending: z.string(),
+    isDeleted: z.boolean().optional(),
   }),
 });
 
@@ -23,6 +24,7 @@ export const updateExperienceValidationSchema = z.object({
     logo: z.string().optional(),
     joining: z.string().optional(),
     ending: z.string().optional(),
+    isDeleted: z.boolean().optional(),
   }),
 });
 

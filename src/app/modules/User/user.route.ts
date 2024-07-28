@@ -15,4 +15,14 @@ router.post(
   UserControllers.createAdmin,
 );
 
+router.get(
+  '/',
+  UserControllers.getAllAdmins,
+);
+
+router.delete(
+  '/:id',
+  UserControllers.deleteAdmin,
+);
+
 export const UserRoutes = router;

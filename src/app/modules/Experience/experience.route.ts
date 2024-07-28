@@ -22,4 +22,9 @@ router.get(
   ExperienceControllers.getAllExperiences,
 );
 
+router.delete(
+  '/:id',
+  ExperienceControllers.deleteExperience,
+);
+
 export const ExperienceRoutes = router;
