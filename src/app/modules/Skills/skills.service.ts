@@ -16,12 +16,12 @@ const getAllSkillsFromDB = async () => {
 };
 
 const getFrontendSkillsFromDB = async () => {
-  const result = await Skills.find({ category: "Frontend" });
+  const result = await Skills.find({ category: "Frontend", isDeleted: false }).sort({ createdAt: -1 });
   return result;
 };
 
 const getBackendSkillsFromDB = async () => {
-  const result = await Skills.find({ category: "Backend" });
+  const result = await Skills.find({ category: "Backend", isDeleted: false }).sort({ createdAt: -1 });
   return result;
 };
 
