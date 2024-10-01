@@ -6,7 +6,7 @@ export const createBlogsValidationSchema = z.object({
     author: z.string(),
     email: z.string(),
     description: z.string(),
-    img: z.string().optional(),
+    img: z.string(),
   }),
 });
 

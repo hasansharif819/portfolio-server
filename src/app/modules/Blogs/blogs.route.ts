@@ -22,6 +22,11 @@ router.get(
   BlogsControllers.getAllBlogs,
 );
 
+router.get(
+  '/:id',
+  BlogsControllers.getBlogById,
+)
+
 router.delete(
   '/:id',
   BlogsControllers.deleteBlog,

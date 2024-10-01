@@ -15,6 +15,11 @@ const getAllBlogsFromDB = async () => {
   return result;
 };
 
+const getBlogById = async (id: string) => {
+  const result = await Blogs.findOne({ _id: id, isDeleted: false });
+  return result;
+};
+
 const updateBlogIntoDB = async (id: string, payload: Partial<TBlogs>) => {
   // console.log('update Blog', id, payload);
 
@@ -66,5 +71,6 @@ export const BlogsServices = {
   getAllBlogsFromDB,
   deleteBlogFromDB,
   createBlogIntoDB,
-  updateBlogIntoDB
+  updateBlogIntoDB,
+  getBlogById
 };

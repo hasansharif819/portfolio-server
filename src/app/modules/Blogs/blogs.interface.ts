@@ -5,7 +5,7 @@ export type TBlogs = {
   author: string;
   email: string;
   description: string;
-  img?: string;
+  img: string;
   isDeleted: boolean;
   createdAt?: Date;
 };

@@ -19,7 +19,9 @@ const blogsSchema = new Schema<TBlogs>(
       type: String,
       required: [true, 'Description is required'],
     },
-    img: { type: String, default: '' },
+    img: { type: String, 
+    required: [true, 'Image is required'],
+    },
     isDeleted: {
       type: Boolean,
       default: false,
